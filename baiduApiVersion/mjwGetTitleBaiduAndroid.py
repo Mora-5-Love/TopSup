@@ -14,15 +14,16 @@ import base64
 from PIL import Image
 import os
 
+# 百度OCR API  ，在 https://cloud.baidu.com/product/ocr 上注册新建应用即可
+api_key = 'w00QICXZEUXviKKdQeePVh9R'
+api_secret = 'jqCeZM7jCES34Sleyu1GCdlGtEMDclgP'
+
 def pull_screenshot():
     os.system('adb shell screencap -p /sdcard/screenshot.png')
     os.system('adb pull /sdcard/screenshot.png .')
 
 def getquestion(img):
     region = img.crop((50, 350, 1000, 600))
-    # 百度OCR API  ，在 https://cloud.baidu.com/product/ocr 上注册新建应用即可
-    api_key = 'w00QICXZEUXviKKdQeePVh9R'
-    api_secret = 'jqCeZM7jCES34Sleyu1GCdlGtEMDclgP'
     # 获取token
     host =  'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id='+api_key+'&client_secret='+api_secret
     headers = {
@@ -44,9 +45,6 @@ def getquestion(img):
 
 def getchoices(img):
     region = img.crop((75, 615, 990, 1200))
-    # 百度OCR API  ，在 https://cloud.baidu.com/product/ocr 上注册新建应用即可
-    api_key = 'w00QICXZEUXviKKdQeePVh9R'
-    api_secret = 'jqCeZM7jCES34Sleyu1GCdlGtEMDclgP'
     # 获取token
     host =  'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id='+api_key+'&client_secret='+api_secret
     headers = {

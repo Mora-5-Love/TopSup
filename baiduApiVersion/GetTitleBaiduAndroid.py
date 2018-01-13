@@ -34,8 +34,8 @@ region = img.crop((50, 350, 1000, 600))
 #  plt.show()
 
 # 百度OCR API  ，在 https://cloud.baidu.com/product/ocr 上注册新建应用即可
-api_key = 'w00QICXZEUXviKKdQeePVh9R'
-api_secret = 'jqCeZM7jCES34Sleyu1GCdlGtEMDclgP'
+api_key = ''
+api_secret = ''
 
 
 # 获取token
