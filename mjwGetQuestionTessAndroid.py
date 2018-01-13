@@ -13,6 +13,7 @@ import time
 
 while True:
     # 截图
+    start_time = time.clock()
     screenshot.check_screenshot()
 
     img = Image.open("./screenshot.png")
@@ -32,14 +33,16 @@ while True:
 
     # 多线程
     m1 = Thread(mjwGetTitleBaiduAndroid.search_from_baidu(question))
-    #  m2 = Thread(methods.run_algorithm(1, question, choices))
+    # #  m2 = Thread(methods.run_algorithm(1, question, choices))
     m3 = Thread(methods.run_algorithm(2, question, choices))
     m1.start()
-    #  m2.start()
+    # #  m2.start()
     m3.start()
 
-    # end_time = time.clock()
-    # print(end_time - t)
+    end_time = time.clock()
+    exit = end_time - start_time
+    print ("time used: \t", exit)
+
     go = input('输入回车继续运行,输入 n 回车结束运行: ')
     if go == 'n':
         break

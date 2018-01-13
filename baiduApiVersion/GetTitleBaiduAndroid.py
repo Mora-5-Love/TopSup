@@ -5,6 +5,7 @@
 # @desc    : python 3 , 答题闯关辅助，截屏 ，OCR 识别，百度搜索
 
 import io
+import time
 import urllib.parse
 import webbrowser
 import requests
@@ -18,6 +19,7 @@ def pull_screenshot():
     os.system('adb shell screencap -p /sdcard/screenshot.png')
     os.system('adb pull /sdcard/screenshot.png .')
 
+start = time.clock()
 pull_screenshot()
 img = Image.open("./screenshot.png")
 
@@ -59,3 +61,5 @@ for i in r.json()['words_result']:
 # result 即为问题
 result = urllib.parse.quote(result)
 webbrowser.open('https://baidu.com/s?wd='+result)
+exit = (time.clock() - start)
+print ("time used: \t", exit)

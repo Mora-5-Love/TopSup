@@ -11,6 +11,7 @@ from threading import Thread
 import time
 
 while True:
+    start_time = time.clock()
     # 截图
     screenshot.check_screenshot()
 
@@ -36,8 +37,9 @@ while True:
     #  m2.start()
     m3.start()
 
-    # end_time = time.clock()
-    # print(end_time - t)
+    end_time = time.clock()
+    exit = end_time - start_time
+    print("time used: \t",exit)
     go = input('输入回车继续运行,输入 n 回车结束运行: ')
     if go == 'n':
         break
