@@ -8,6 +8,7 @@
 from PIL import Image
 from common import screenshot, ocr, methods
 from threading import Thread
+from baiduApiVersion import mjwGetTitleBaiduAndroid
 import time
 
 while True:
@@ -17,7 +18,8 @@ while True:
     img = Image.open("./screenshot.png")
 
     # 文字识别
-    question, choices = ocr.ocr_img(img)
+    questions, choices = ocr.ocr_img(img)
+    question = mjwGetTitleBaiduAndroid.getquestion(img)
     # t = time.clock()
     # 用不同方法输出结果，取消某个方法在前面加上#
 
@@ -29,10 +31,10 @@ while True:
     # methods.run_algorithm(2, question, choices)
 
     # 多线程
-    #  m1 = Thread(methods.run_algorithm(0, question, choices))
+    m1 = Thread(mjwGetTitleBaiduAndroid.search_from_baidu(question))
     #  m2 = Thread(methods.run_algorithm(1, question, choices))
     m3 = Thread(methods.run_algorithm(2, question, choices))
-    #  m1.start()
+    m1.start()
     #  m2.start()
     m3.start()
 

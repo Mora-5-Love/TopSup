@@ -23,16 +23,17 @@ img = Image.open("./screenshot.png")
 
 # 用 matplot 查看测试分辨率，切割
 
-region = img.crop((50, 350, 1000, 560)) # 坚果 pro1
+region = img.crop((50, 350, 1000, 600))
+
 #region = img.crop((75, 315, 1167, 789)) # iPhone 7P
 
-#im = plt.imshow(img, animated=True)
-#im2 = plt.imshow(region, animated=True)
-#plt.show()
+#  im = plt.imshow(img, animated=True)
+#  im2 = plt.imshow(region, animated=True)
+#  plt.show()
 
 # 百度OCR API  ，在 https://cloud.baidu.com/product/ocr 上注册新建应用即可
-api_key = ''
-api_secret = ''
+api_key = 'w00QICXZEUXviKKdQeePVh9R'
+api_secret = 'jqCeZM7jCES34Sleyu1GCdlGtEMDclgP'
 
 
 # 获取token
@@ -54,5 +55,7 @@ r = requests.post('https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic',
 result = ''
 for i in r.json()['words_result']:
     result += i['words']
+
+# result 即为问题
 result = urllib.parse.quote(result)
 webbrowser.open('https://baidu.com/s?wd='+result)

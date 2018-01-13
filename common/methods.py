@@ -6,14 +6,9 @@
 
 import requests
 import webbrowser
-import urllib.parse
-
-# # 颜色兼容Win 10
-from colorama import init,Fore
-init()
 
 def open_webbrowser(question):
-    webbrowser.open('https://baidu.com/s?wd=' + urllib.parse.quote(question))
+    webbrowser.open('https://baidu.com/s?wd=' + question)
 
 def open_webbrowser_count(question,choices):
     print('\n-- 方法2： 题目+选项搜索结果计数法 --\n')
@@ -53,26 +48,25 @@ def output(choices, counts):
     counts = list(map(int, counts))
     #print(choices, counts)
 
-    # 计数最高
+    # 最可能的答案
     index_max = counts.index(max(counts))
 
-    # 计数最少
+    # 最不可能的答案
     index_min = counts.index(min(counts))
 
     if index_max == index_min:
-        print(Fore.RED + "高低计数相等此方法失效！" + Fore.RESET)
+        print("\033[1;31m此方法失效！\033[0m")
         return
 
     for i in range(len(choices)):
-        print()
         if i == index_max:
             # 绿色为计数最高的答案
-            print(Fore.GREEN + "{0} : {1} ".format(choices[i], counts[i]) + Fore.RESET)
+            print("\033[1;32m{0:^10} {1:^10}\033[0m".format(choices[i], counts[i]))
         elif i == index_min:
             # 红色为计数最低的答案
-            print(Fore.MAGENTA + "{0} : {1}".format(choices[i], counts[i]) + Fore.RESET)
+            print("\033[0;31m{0:^10}{1:^10}\033[0m".format(choices[i], counts[i]))
         else:
-            print("{0} : {1}".format(choices[i], counts[i]))
+            print("{0:^10} {1:^10}".format(choices[i], counts[i]))
 
 
 def run_algorithm(al_num, question, choices):

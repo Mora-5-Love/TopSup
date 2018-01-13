@@ -5,7 +5,7 @@ choices_im = image.crop((75, 535, 990, 1150))
 
 
 # 锤子 M1L
-question = img.crop((120,400,1330, 700))
+question = img.crop((160,480,1280, 700))
 choices = img.crop((170, 760, 1330, 1422))
 
 # mi5
@@ -19,3 +19,7 @@ choices_im = image.crop((75, 735, 990, 1270))
 # 西瓜视频
 question_im = image.crop((75, 320, 1000, 530))
 choices_im = image.crop((75, 575, 990, 1050))
+
+# myself
+ question_im = image.crop((75, 615, 990, 1200))
+ choices_im = image.crop((50, 350, 1000, 600))
