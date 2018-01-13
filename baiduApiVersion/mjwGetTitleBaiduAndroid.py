@@ -20,8 +20,8 @@ def pull_screenshot():
 def getquestion(img):
     region = img.crop((50, 350, 1000, 600))
     # 百度OCR API  ，在 https://cloud.baidu.com/product/ocr 上注册新建应用即可
-    api_key = 'w00QICXZEUXviKKdQeePVh9R'
-    api_secret = 'jqCeZM7jCES34Sleyu1GCdlGtEMDclgP'
+    api_key = ''
+    api_secret = ''
     # 获取token
     host =  'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id='+api_key+'&client_secret='+api_secret
     headers = {
