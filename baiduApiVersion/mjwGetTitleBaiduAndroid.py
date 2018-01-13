@@ -15,8 +15,8 @@ from PIL import Image
 import os
 
 # 百度OCR API  ，在 https://cloud.baidu.com/product/ocr 上注册新建应用即可
-api_key = 'w00QICXZEUXviKKdQeePVh9R'
-api_secret = 'jqCeZM7jCES34Sleyu1GCdlGtEMDclgP'
+api_key = ''
+api_secret = ''
 
 def pull_screenshot():
     os.system('adb shell screencap -p /sdcard/screenshot.png')
