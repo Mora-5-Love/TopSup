@@ -30,14 +30,14 @@ def open_webbrowser_count(question,choices):
     output(choices, counts)
 
 def count_base(question,choices):
-    print('\n-- 方法3： 题目搜索结果包含选项词频计数法 --\n')
+    #  print('\n-- 方法3： 题目搜索结果包含选项词频计数法 --\n')
     # 请求
     req = requests.get(url='http://www.baidu.com/s', params={'wd':question})
     content = req.text
     #print(content)
     counts = []
-    print('Question: '+question)
-    if '不是' in question:
+    #  print('Question: '+question)
+    if '不' in question:
         print('**请注意此题为否定题,选计数最少的**')
     for i in range(len(choices)):
         counts.append(content.count(choices[i]))

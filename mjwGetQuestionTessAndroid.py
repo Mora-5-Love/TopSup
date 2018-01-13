@@ -19,8 +19,13 @@ while True:
     img = Image.open("./screenshot.png")
 
     # 文字识别
-    questions, choices = ocr.ocr_img(img)
+    #  me2_start = time.clock()
+    #  me2_end = time.clock()
+    #  me2_exit = me2_end - me2_start
+    #  print ("me2 time used: \t", me2_exit)
+    #  questions, choices = ocr.ocr_img(img)
     question = mjwGetTitleBaiduAndroid.getquestion(img)
+    choices = mjwGetTitleBaiduAndroid.getchoices(img)
     # t = time.clock()
     # 用不同方法输出结果，取消某个方法在前面加上#
 
@@ -38,6 +43,13 @@ while True:
     m1.start()
     # #  m2.start()
     m3.start()
+
+    # me2_start = time.clock()
+    # #  methods.run_algorithm(2, question, choices)
+    # mjwGetTitleBaiduAndroid.search_from_baidu(question)
+    # me2_end = time.clock()
+    # me2_exit = me2_end - me2_start
+    # print ("me2 time used: \t", me2_exit)
 
     end_time = time.clock()
     exit = end_time - start_time

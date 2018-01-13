@@ -54,7 +54,7 @@ def check_screenshot():
     pull_screenshot()
     try:
         Image.open('./screenshot.png').load()
-        print('采用方式 {} 获取截图'.format(SCREENSHOT_WAY))
+        #  print('采用方式 {} 获取截图'.format(SCREENSHOT_WAY))
     except Exception:
         SCREENSHOT_WAY -= 1
         check_screenshot()
