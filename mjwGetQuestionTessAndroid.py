@@ -24,8 +24,11 @@ while True:
     #  me2_exit = me2_end - me2_start
     #  print ("me2 time used: \t", me2_exit)
     #  questions, choices = ocr.ocr_img(img)
-    question = mjwGetTitleBaiduAndroid.getquestion(img)
-    choices = mjwGetTitleBaiduAndroid.getchoices(img)
+    #  question = mjwGetTitleBaiduAndroid.getquestion(img)
+    #  choices = mjwGetTitleBaiduAndroid.getchoices(img)
+    question,choices = mjwGetTitleBaiduAndroid.get_question_and_choices(img)
+    #  print(question)
+    #  print(choices)
     # t = time.clock()
     # 用不同方法输出结果，取消某个方法在前面加上#
 
@@ -38,10 +41,10 @@ while True:
 
     # 多线程
     m1 = Thread(mjwGetTitleBaiduAndroid.search_from_baidu(question))
-    # #  m2 = Thread(methods.run_algorithm(1, question, choices))
+    #  m2 = Thread(methods.run_algorithm(1, question, choices))
     m3 = Thread(methods.run_algorithm(2, question, choices))
     m1.start()
-    # #  m2.start()
+    #  m2.start()
     m3.start()
 
     # me2_start = time.clock()

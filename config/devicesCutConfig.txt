@@ -21,5 +21,6 @@ question_im = image.crop((75, 320, 1000, 530))
 choices_im = image.crop((75, 575, 990, 1050))
 
 # myself
- question_im = image.crop((75, 615, 990, 1200))
- choices_im = image.crop((50, 350, 1000, 600))
+ choices_im = image.crop((75, 615, 990, 1250))
+ question_im = image.crop((50, 350, 1000, 600))
+ region = img.crop((75, 350, 990, 1250))

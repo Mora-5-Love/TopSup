@@ -63,6 +63,32 @@ def getchoices(img):
     for i in r.json()['words_result']:
         result.append(i['words'])
     return result
+
+def get_question_and_choices(img):
+    region = img.crop((75, 350, 990, 1250))
+    # 获取token
+    host =  'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id='+api_key+'&client_secret='+api_secret
+    headers = {
+        'Content-Type':'application/json;charset=UTF-8'
+    }
+    res = requests.get(url=host,headers=headers).json()
+    token = res['access_token']
+    imgByteArr = io.BytesIO()
+    region.save(imgByteArr, format='PNG')
+    image_data = imgByteArr.getvalue()
+    base64_data = base64.b64encode(image_data)
+    r = requests.post('https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic',
+                  params={'access_token': token}, data={'image': base64_data})
+    choices = []
+    question = ''
+    count = r.json()['words_result_num']
+    for i in r.json()['words_result']:
+        if count > 3 :
+            question += i['words']
+            count = count - 1
+        else :
+            choices.append(i['words'])
+    return question,choices
 # searching from baidu
 def search_from_baidu(question):
     result = urllib.parse.quote(question)
