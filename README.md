@@ -18,7 +18,7 @@ pip install pillow
 pip install requests
 
 ```
-#### 4. 在 `GetTitleBaiduAndroid.py` 中加入相应 key
+#### 4. 在 `mjwGetTitleBaiduAndroid.py` 中加入相应 key
 
 ```
 百度OCR API
