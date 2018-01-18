@@ -34,7 +34,6 @@ def count_base(question,choices):
     # 请求
     req = requests.get(url='http://www.baidu.com/s', params={'wd':question})
     content = req.text
-    #  print(content)
     counts = []
     #  print('Question: '+question)
     if '不' in question:

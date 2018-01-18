@@ -65,7 +65,7 @@ def getchoices(img):
     return result
 
 def get_question_and_choices(img):
-    region = img.crop((75, 350, 990, 1250))
+    region = img.crop((75, 350, 990, 1200))
     # 获取token
     host =  'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id='+api_key+'&client_secret='+api_secret
     headers = {

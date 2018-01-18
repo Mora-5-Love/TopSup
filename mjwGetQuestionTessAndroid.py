@@ -40,9 +40,12 @@ while True:
     # methods.run_algorithm(2, question, choices)
 
     # 多线程
-    m1 = Thread(mjwGetTitleBaiduAndroid.search_from_baidu(question))
-    #  m2 = Thread(methods.run_algorithm(1, question, choices))
-    m3 = Thread(methods.run_algorithm(2, question, choices))
+    #  m1 = Thread(methods.run_algorithm(0, question, choices))
+    #  #  m2 = Thread(methods.run_algorithm(1, question, choices))
+    #  m3 = Thread(methods.run_algorithm(2, question, choices))
+    m1 = Thread(target=methods.run_algorithm, args=(0, question, choices))
+    #  m2 = Thread(target=methods.run_algorithm, args=(1, question, choices))
+    m3 = Thread(target=methods.run_algorithm, args=(2, question, choices))
     m1.start()
     #  m2.start()
     m3.start()
